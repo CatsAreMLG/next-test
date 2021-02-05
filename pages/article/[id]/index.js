@@ -1,6 +1,7 @@
 import {server} from "../../../config/index"
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+import Head from '../../../components/Head/Head'
 
 const article = ({article}) => {
     // const router = useRouter()
@@ -8,6 +9,7 @@ const article = ({article}) => {
 
     return (
         <>
+            <Head title={article.title} description={article.excerpt} />
             <h1>{article.title}</h1>
             <p>{article.body}</p>
             <br/>

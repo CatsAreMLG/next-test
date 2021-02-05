@@ -1,6 +1,6 @@
 import HeadComponent from 'next/head'
 
-const Head = ({title,name,tags,icon = "/favicon.ico"}) => {
+const Head = ({title,name,tags,icon}) => {
     return ( 
         <HeadComponent>
             <title>{title}</title>
@@ -8,6 +8,13 @@ const Head = ({title,name,tags,icon = "/favicon.ico"}) => {
             {name?<meta name={name} content={tags} />:''}
         </HeadComponent>
     );
+}
+
+Head.defaultProps = {
+    title: 'Next News',
+    keyworkds: 'Next.js, web development, programming',
+    description: 'Get the latest Next.js News',
+    icon: '/favicon.ico'
 }
  
 export default Head;

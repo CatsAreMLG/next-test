@@ -1,11 +1,9 @@
 import {server} from "../config/index"
-import Head from '../components/Head/Head'
 import ArticleList from '../components/ArticleList/ArticleList'
 
 export default function Home({articles}) {
   return (
     <div>
-      <Head title={"Next News"} name={"keywords"} content="web development, programming" />
       <ArticleList articles={articles} />
     </div>
   )
