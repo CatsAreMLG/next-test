@@ -1,37 +1,35 @@
-// import {server} from "../config/index"
+import Cosmic from "cosmicjs";
+
+const BUCKET_SLUG = process.env.COSMIC_BUCKET_SLUG;
+const READ_KEY = process.env.COSMIC_READ_KEY;
+
+const bucket = Cosmic().bucket({
+  slug: BUCKET_SLUG,
+  read_key: READ_KEY,
+});
+
+
 import ArticleList from '../components/ArticleList/ArticleList'
 
 export default function Home({articles}) {
   return (
-    <div>
+    <>
       <ArticleList articles={articles} />
-    </div>
-  )
+    </>
+  );
 }
-
-// export const getStaticProps = async () => {
-//   try {
-//     const res = await fetch(`${server}/api/articles`)
-//     const articles = await res.json()
-    
-//     return {
-//       props: {
-//         articles
-//       }
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-
-// }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`)
-  const articles = await res.json()
-
+  const data = await bucket.getObjects({
+    type: "posts",
+    props: "slug,title,content,metadata", // Limit the API response data by props
+  });
+  const articles = await data.objects;
   return {
     props: {
-      articles
-    }
-  }
+      articles,
+    },
+  };
 }
+
+
