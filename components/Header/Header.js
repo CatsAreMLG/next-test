@@ -7,7 +7,7 @@ const Header = () => {
         <>
             <Link href="/">
                 <h1 className={headerStyles.title}>
-                    <span>Next</span> News
+                    <span>Next</span> Blog
                 </h1>
             </Link>
         </>

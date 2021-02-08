@@ -6,7 +6,7 @@ import styles from '../../styles/Layout.module.css'
 const Layout = ({children}) => {
     return (
         <>
-            <Head title={"Next News"} name={"keywords"} content="web development, programming" />
+            <Head title={"Next Blog"} name={"keywords"} content="web development, programming" />
             <Nav />
             <div className={styles.container}>
                 <main className={styles.main}>
