@@ -1,4 +1,4 @@
-import { getPreviewArticleBySlug } from "@/lib/api";
+import { getPreviewArticleBySlug } from "../lib/api";
 
 export default async function preview(req, res) {
   // Check the secret and next parameters
