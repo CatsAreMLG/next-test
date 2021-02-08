@@ -24,7 +24,8 @@ export const getStaticProps = async () => {
     type: "posts",
     props: "slug,title,content,metadata", // Limit the API response data by props
   });
-  const articles = await data.objects;
+  const articles = await data.objects
+  if (articles === undefined) articles = null
   return {
     props: {
       articles,
